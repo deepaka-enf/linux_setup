@@ -1,0 +1,33 @@
+export NO_AT_BRIDGE=1
+export PATH="$PATH:/edatools/Verible/v0.0-1298-g27add07/bin/"
+export PATH="$PATH:/home/deepaka/.cargo/bin/"
+
+alias vi='vim'
+alias c='clear'
+alias cls='clear; ls'
+alias ll='ls -l'
+alias gvim='gvim -p'
+
+alias gitclone='gh repo clone deepaka-enf/internal && cd internal && gitpull'
+alias gitclone='git clone org-64667743@github.com:deepaka-enf/internal.git && cd internal && git remote add upstream org-64667743@github.com:enfabrica/internal.git && gitpull'
+alias gitpull='git checkout master && git fetch upstream && git merge upstream/master && git push'
+alias gitcloneb0='git clone org-64667743@github.com:deepaka-enf/internal.git && cd internal && git remote add upstream org-64667743@github.com:enfabrica/internal.git && gitpull && gitpullb0'
+alias gitpullb0='git checkout master_b0 && git fetch upstream && git merge upstream/master_b0 && git push'
+alias gitcb='git checkout -b'
+alias gitd='git difftool'
+
+alias go2work='cd /home/deepaka/work'
+alias el='enkit login deepaka@enfabrica.net'
+alias fgrep='find . -type f | xargs grep'
+alias setw='export WORKAREA=`pwd`'
+alias cdhw='cd $WORKAREA'
+alias bclean="bazel clean --expunge --async"
+alias fw='find . -iname "waves.sh"'
+alias nvim='/opt/nvim-linux64/bin/nvim'
+
+alias ghd='github-desktop > /dev/null 2>&1 &'
+
+alias presubmit='BAZEL_PROFILE=buildbarn bazel test ... --build_tag_filters=-no-presubmit --test_tag_filters=-no-presubmit'
+alias btest='bazel test'
+alias bbtest='BAZEL_PROFILE=buildbarn bazel test'
+alias bral='BAZEL_PROFILE=buildbarn bazel build //hw/projects/mlm/dv/common/ral:aps_map_ral_pkg_elab ; BAZEL_PROFILE=buildbarn bazel build //hw/projects/mlm/dv/common/ral:aps_map_ral_pkg_elab; gvim -p bazel-out/k8-fastbuild/bin/hw/projects/mlm/dv/common/ral/rerooted-aps_map_ral_pkg_elab.runfiles/enfabrica/hw/projects/mlm/dv/common/ral/aps_periph_ral_pkg.sv bazel-out/k8-fastbuild-ST-babbd304a8f1/bin/hw/projects/mlm/csr/mcu/aps/aps_map_pkg.sv'
