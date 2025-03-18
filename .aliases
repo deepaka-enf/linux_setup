@@ -1,4 +1,5 @@
 export NO_AT_BRIDGE=1
+export PATH="$PATH:/opt/nvim/"
 export PATH="$PATH:/edatools/Verible/v0.0-1298-g27add07/bin/"
 export PATH="$PATH:/home/deepaka/.cargo/bin/"
 
