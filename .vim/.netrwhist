@@ -1,2 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =0
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/deepaka'
+let g:netrw_dirhist_1='/home/deepaka/.config/nvim/lua/plugins'
+let g:netrw_dirhist_0='/home/deepaka/.config/nvim/lua'
+let g:netrw_dirhist_9='/home/deepaka/.config/nvim'
+let g:netrw_dirhist_8='/home/deepaka/work/eth_csr'
+let g:netrw_dirhist_7='/home/deepaka/.config/nvim'
+let g:netrw_dirhist_6='/home/deepaka/.config/nvim/lua'
+let g:netrw_dirhist_5='/home/deepaka/.config/nvim/lua/plugins'
+let g:netrw_dirhist_4='/edatools/.unpack/astore/6zayorgfezcyajipmpr3fj37qsseyhkq/phy/include'
+let g:netrw_dirhist_3='/edatools/.unpack/astore/vw8ank7yufobo4takasmuojgudi4cmrp/phy/testbench'

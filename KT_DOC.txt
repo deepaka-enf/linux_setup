@@ -1,0 +1,29 @@
+#To generate aps_ral_pkg, files will be generated under bazel-bin/hw/projects/mlm/dv/common/ral/rerooted-aps_map_ral_pkg_elab.runfiles/enfabrica/hw/projects/mlm/dv/common/ral
+BAZEL_PROFILE=buildbarn bazel build //hw/projects/mlm/dv/common/ral:aps_map_ral_pkg_elab
+BAZEL_PROFILE=buildbarn bazel build //hw/projects/mlm/csr/mcu/aps:aps_map_pkg_elab
+
+#Sample Run Commands
+--dv_modes="waves"
+--dv_run_opts="+UVM_VERBOSITY=UVM_DEBUG, -svseed 1903214889"
+--runs_per_test 10
+
+
+#Upload waveform to enf_mounts:
+/enf_mounts/bin/share_push --jira DV-1686 --name hsio_eth_waves --path ./rerooted-hbt_hbc_inbound_mem_csr_large_payload_w_low_tag_pool_test.runfiles/enfabrica --src_type waves
+
+#To run on Barn
+BAZEL_PROFILE=buildbarn bazel test ... --build_tag_filters=-no-presubmit --test_tag_filters=-no-presubmit
+
+#Reset Git Branch
+git reset --hard HEAD
+
+git push -f --set-upstream origin
+
+#Coverage
+BAZEL_PROFILE=buildbarn bazel-bin/bazel/eda/imc '--tool=imc' -exec cov
+
+#Config Local gitignore
+git config --global core.excludesFile ~/.gitignore
+
+/edatools/Synopsys/Verdi/S-2021.09-SP1/bin/verdi  myDB.fsdb &
+

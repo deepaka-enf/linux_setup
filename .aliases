@@ -1,6 +1,6 @@
 export NO_AT_BRIDGE=1
-export PATH="$PATH:/opt/nvim/"
-export PATH="$PATH:/edatools/Verible/v0.0-1298-g27add07/bin/"
+export PATH="$PATH:/home/deepaka/verible/bin"
+export PATH="$PATH:/home/deepaka/.cargo/bin/"
 export PATH="$PATH:/home/deepaka/.cargo/bin/"
 
 alias vi='vim'
@@ -23,7 +23,18 @@ alias fgrep='find . -type f | xargs grep'
 alias setw='export WORKAREA=`pwd`'
 alias cdhw='cd $WORKAREA'
 alias bclean="bazel clean --expunge --async"
-alias fw='find . -iname "waves.sh"'
+alias fw='find bazel-out/k8-fastbuild -iname "waves.sh"'
+alias fb='find bazel-out/k8-fastbuild -iname "build.log"'
+alias fl='find bazel-out/k8-fastbuild -iname "test.log"'
+#------------------------------
+# Download and install nvim
+# curl -LO https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-linux64.tar.gz
+# sudo rm -rf /opt/nvim-linux64
+# sudo mkdir -p /opt/nvim-linux64
+# sudo chmod a+rX /opt/nvim-linux64
+# sudo tar -C /opt -xzf nvim-linux64.tar.gz
+#------------------------------------------
+
 alias nvim='/opt/nvim-linux64/bin/nvim'
 
 alias ghd='github-desktop > /dev/null 2>&1 &'
@@ -31,4 +42,4 @@ alias ghd='github-desktop > /dev/null 2>&1 &'
 alias presubmit='BAZEL_PROFILE=buildbarn bazel test ... --build_tag_filters=-no-presubmit --test_tag_filters=-no-presubmit'
 alias btest='bazel test'
 alias bbtest='BAZEL_PROFILE=buildbarn bazel test'
-alias bral='BAZEL_PROFILE=buildbarn bazel build //hw/projects/mlm/dv/common/ral:aps_map_ral_pkg_elab ; BAZEL_PROFILE=buildbarn bazel build //hw/projects/mlm/dv/common/ral:aps_map_ral_pkg_elab; gvim -p bazel-out/k8-fastbuild/bin/hw/projects/mlm/dv/common/ral/rerooted-aps_map_ral_pkg_elab.runfiles/enfabrica/hw/projects/mlm/dv/common/ral/aps_periph_ral_pkg.sv bazel-out/k8-fastbuild-ST-babbd304a8f1/bin/hw/projects/mlm/csr/mcu/aps/aps_map_pkg.sv'
+alias bral='BAZEL_PROFILE=buildbarn bazel build //hw/projects/mlm/dv/common/ral:aps_map_ral_pkg_elab ; BAZEL_PROFILE=buildbarn bazel build //hw/projects/mlm/dv/common/ral:mrng_map_ral_pkg_elab;  BAZEL_PROFILE=buildbarn bazel build //hw/projects/mlm/dv/common/ral:mps_map_ral_pkg_elab' 

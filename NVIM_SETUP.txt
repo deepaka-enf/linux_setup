@@ -1,0 +1,31 @@
+# Step 1, Install NerdFonts. This includes icons used by plugins
+wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip \
+&& cd ~/.local/share/fonts \
+&& unzip JetBrainsMono.zip \
+&& rm JetBrainsMono.zip \
+&& fc-cache -fv
+
+#Step 2, Install konsole. It is adavanced version of xTerm. xTERM doesnt support nerdfont.
+sudo apt-get install konsole
+
+#Step 3, open konsole and create default profile with nerdfont
+
+#Step 4, Install NVIM
+curl -LO https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-linux64.tar.gz
+sudo rm -rf /opt/nvim-linux64
+sudo mkdir -p /opt/nvim-linux64
+sudo chmod a+rX /opt/nvim-linux64
+sudo tar -C /opt -xzf nvim-linux64.tar.gz
+
+#Step 5, Create an alias in your bashrc
+alias nvim='/opt/nvim-linux64/bin/nvim'
+
+#Step 6, Download Astrovim setup
+git clone https://github.com/deepaka-enf/astrovim_template ~/.config/nvim
+
+#Step7, Update nodejs for augment.ai
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+source ~/.bashrc
+nvm install v22.15.0
+node --version
+
